@@ -1,5 +1,6 @@
 ﻿using Exploring.Static.Models;
 
+
 namespace Exploring.Static
 {
     internal class Program
@@ -15,7 +16,6 @@ namespace Exploring.Static
 
             while (isContinue != null && isContinue.ToUpper()=="Y")
             {
-
                 Console.WriteLine("Please enter the First Name:");
 
                 var firstName = Console.ReadLine();
@@ -26,18 +26,30 @@ namespace Exploring.Static
 
                 var surName = Console.ReadLine();
 
-                surName ??= string.Empty;
+                surName = null;
 
-                var newEmployee = AddNewEmployee(firstName, surName);
+                surName ??= String.Empty;
+
+                //var newEmployee = AddNewEmployee(firstName, surName);
+
+                
+
+                Employee employee = new()
+                {
+                    FirstName = firstName,
+                    Surname = surName,
+                 };
+
 
                 StaffManagement.AddEmployee();
 
-                Console.WriteLine($"{newEmployee} has been added to the Company");
+                var fullname = employee.FullName();
+
+                Console.WriteLine($"{employee} has been added to the Company");
 
                 Console.WriteLine("Would you like to capture a new employee?  Enter Y to continue:");
 
                 isContinue = Console.ReadLine();
-
 
             }
 
@@ -46,7 +58,9 @@ namespace Exploring.Static
             Console.WriteLine($" the number of employees at our company is now {StaffManagement.NoOfEmployees}!");
         }
 
-            private static string AddNewEmployee(string firstName, string surname)
+        public static int Counting { get; set; }
+
+        private static string AddNewEmployee(string firstName, string surname)
             {
 
             Employee employee = new()

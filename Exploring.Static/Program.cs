@@ -8,6 +8,9 @@ namespace Exploring.Static
         static void Main(string[] args)
         {
 
+            Console.BackgroundColor = ConsoleColor.Magenta;
+            Console.ForegroundColor = ConsoleColor.White;
+
             Console.WriteLine("Hello, We are going to explore a static class");
 
             Console.WriteLine("Would you like to capture a new employee?  Enter Y to continue:");
@@ -26,7 +29,7 @@ namespace Exploring.Static
 
                 var surName = Console.ReadLine();
 
-                surName = null;
+                //surName = null;
 
                 surName ??= String.Empty;
 
@@ -45,7 +48,7 @@ namespace Exploring.Static
 
                 var fullname = employee.FullName();
 
-                Console.WriteLine($"{employee} has been added to the Company");
+                Console.WriteLine($"{fullname} has been added to the Company");
 
                 Console.WriteLine("Would you like to capture a new employee?  Enter Y to continue:");
 

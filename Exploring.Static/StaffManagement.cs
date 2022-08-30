@@ -3,7 +3,6 @@
 
     static class StaffManagement
     {
-
         public static int NoOfEmployees { get; set; }
         public static void AddEmployee()
         {
